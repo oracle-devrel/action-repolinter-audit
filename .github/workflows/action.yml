@@ -1,0 +1,36 @@
+# Copyright (c) 2021 Oracle and/or its affiliates.
+
+# action.yml
+name: 'Repolinter checker'
+description: 'Examine the JSON output from Repolinter and make it accessible as an Action.'
+inputs:
+  json_results_file:
+    description: 'The file containing the JSON results returned from Repolinter'
+    required: false
+    default: 'repolinter_results.json'
+outputs:
+  passed:
+    description: 'Whether or not all Repolinter rules passed.'
+  errored:
+    description: 'Whether or not one or more Repolinter rules errored.'
+  readme_file_found:
+    description: 'Whether or not a README file was found.'
+  readme_file_details:
+    description: 'The details of the README file check'
+  license_file_found:
+    description: 'Whether or not a LICENSE file was found.'
+  license_file_details:
+    description: 'The details of the LICENSE file check'
+  blacklisted_words_found:
+    description: 'Whether or not blacklisted words were found.'
+  blacklisted_words_details:
+    description: 'The details of the blacklisted words check'
+  copyright_found:
+    description: 'Whether or not copyright notices were found.'
+  copyright_details:
+    description: 'The details of the copyright check'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.json_results_file }}
