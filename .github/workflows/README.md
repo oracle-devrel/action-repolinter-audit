@@ -26,4 +26,4 @@ This is designed to be used in GitHub Actions.  This looks at the output of Repo
 Coming soon!
 
 ## Copyright Notice
-Copyright (c) 2021 Oracle and/or its affiliates.
+Copyright (c) 2024 Oracle and/or its affiliates.
